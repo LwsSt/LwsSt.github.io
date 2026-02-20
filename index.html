@@ -1,9 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 ---
-
-
 <!-- ═══ HEADER ═══ -->
 <div class="lc-header">
   <div class="lc-portrait">
@@ -13,12 +9,11 @@
         <circle cx="20" cy="15" r="8" stroke="#4A4642" stroke-width="1.5"/>
         <path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#4A4642" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <span>Your photo</span>
     </div>
   </div>
   <div class="lc-header-right">
     <div class="lc-name-full">Lewis Stapleton</div>
-    <div class="lc-descriptor">Senior Software Engineer &nbsp;·&nbsp; London &nbsp;·&nbsp; Available</div>
+    <div class="lc-descriptor">{{ site.job_title }} &nbsp;·&nbsp; {{ site.location }} &nbsp;·&nbsp; {{ site.errata }}</div>
   </div>
 </div>
 
@@ -62,14 +57,12 @@
 
     <div class="lc-aside-block">
       <div class="lc-aside-label">Education</div>
-      <div class="lc-edu-item">
-        <div class="lc-edu-degree">BSc Computer Science<br>(Year in Industry)</div>
-        <div class="lc-edu-meta">University of Kent &nbsp;·&nbsp; 2010 – 2014</div>
-      </div>
-      <div class="lc-edu-cert">
-        <span>Certification</span>
-        Databricks Apache Spark Training &nbsp;·&nbsp; June 2017
-      </div>
+      {% for item in site.data.education %}
+        <div class="lc-edu-item">
+          <div class="lc-edu-degree">{{ item.title }}</div>
+          <div class="lc-edu-meta">{{ item.provider }} &nbsp;·&nbsp; {{ item.duration }}</div>
+        </div>
+      {% endfor %}
     </div>
 
     <div class="lc-aside-block">
