@@ -1,0 +1,444 @@
+/* Lewis Stapleton — Portfolio Styles */
+/* Edit this file and paste the contents into the <style> block in portfolio-layout-c.html to keep both in sync */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F1EA;
+    --ink: #1A1714;
+    --slate: #4A4642;
+    --warm-mid: #8A8078;
+    --rule: #2E2B28;
+    --accent: #C4401C;
+    --bg: #1A1714;
+    --surface: #201D1A;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--cream);
+    min-height: 100vh;
+  }
+
+  /* ─────────────────────────────────────────
+     NAV BANNER
+  ───────────────────────────────────────── */
+  .nav-banner {
+    background: #0E0C0A;
+    border-bottom: 1px solid #2E2B28;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 44px;
+    position: relative;
+    z-index: 100;
+  }
+  .nav-banner-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .nav-banner-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6A6460;
+    text-decoration: none;
+    padding: 0 1.4rem;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #2E2B28;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-link:hover { color: var(--cream); background: #161310; }
+  .nav-link.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+  .nav-contact-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0 1.4rem;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    background: var(--accent);
+    border-left: 1px solid var(--accent);
+    transition: background 0.15s;
+  }
+  .nav-contact-btn:hover { background: #A83518; }
+
+  /* ── Hamburger — hidden on desktop ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    border-left: 1px solid #2E2B28;
+    cursor: pointer;
+    padding: 0 11px;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #6A6460;
+    transition: background 0.15s, transform 0.2s, opacity 0.15s;
+    transform-origin: center;
+  }
+  .nav-hamburger:hover span { background: var(--cream); }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* ── Mobile dropdown ── */
+  .nav-dropdown {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    background: #0E0C0A;
+    border-bottom: 1px solid #2E2B28;
+    flex-direction: column;
+    z-index: 99;
+    display: none;
+  }
+  .nav-dropdown.open { display: flex; }
+  .nav-dropdown .nav-link {
+    height: 48px;
+    border-left: none;
+    border-bottom: none;
+    border-top: 1px solid #2E2B28;
+    padding: 0 1.5rem;
+    font-size: 0.68rem;
+  }
+  .nav-dropdown .nav-link.active {
+    border-bottom: none;
+    border-left: 2px solid var(--accent);
+    padding-left: calc(1.5rem - 2px);
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .nav-banner { padding: 0 0 0 1.2rem; }
+    .nav-links .nav-link { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ─────────────────────────────────────────
+     HEADER
+  ───────────────────────────────────────── */
+  .lc-header {
+    padding: 3rem 3rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .lc-portrait {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #3A3632;
+  }
+  .lc-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%);
+  }
+  .lc-portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #201D1A;
+  }
+  .lc-portrait-placeholder svg { opacity: 0.45; }
+  .lc-portrait-placeholder span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3A3632;
+  }
+  @media (max-width: 700px) {
+    .lc-portrait { width: 88px; height: 88px; }
+  }
+  .lc-header-right {
+    text-align: right;
+  }
+  .lc-name-full {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .lc-descriptor {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: #5A5652;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  /* ─────────────────────────────────────────
+     OPENING STATEMENT
+  ───────────────────────────────────────── */
+  .lc-statement {
+    padding: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lc-statement-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--cream);
+  }
+  .lc-statement-text mark {
+    background: none;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ─────────────────────────────────────────
+     BODY — 2 col grid
+  ───────────────────────────────────────── */
+  .lc-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  /* ── LEFT: EXPERIENCE ── */
+  .lc-experience {
+    padding: 2.5rem 3rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  @media (max-width: 700px) {
+    .lc-body {
+      grid-template-columns: 1fr;
+    }
+    .lc-experience {
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+      padding: 2rem 1.5rem;
+    }
+    .lc-aside {
+      padding: 2rem 1.5rem;
+    }
+    .lc-header {
+      padding: 2rem 1.5rem 1.5rem;
+    }
+    .lc-monogram {
+      font-size: 3.8rem;
+    }
+    .lc-name-full {
+      font-size: 1.5rem;
+    }
+    .lc-statement {
+      padding: 2rem 1.5rem;
+    }
+    .lc-statement-text {
+      font-size: 1.45rem;
+    }
+    .nav-banner {
+      padding: 0 1.2rem;
+    }
+    .nav-link {
+      padding: 0 0.8rem;
+    }
+  }
+
+  .lc-section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #2E2B28;
+  }
+
+  .lc-job {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lc-job:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .lc-job-co {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .lc-job-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #8A8480;
+    margin-bottom: 0.35rem;
+  }
+  .lc-job-dates {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .lc-job-body {
+    font-size: 0.83rem;
+    color: #9A9490;
+    line-height: 1.7;
+  }
+  .lc-job-body p + p {
+    margin-top: 0.75rem;
+  }
+
+  /* ── RIGHT: ASIDE ── */
+  .lc-aside {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .lc-aside-block {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lc-aside-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .lc-aside-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #2E2B28;
+  }
+
+  /* Skills tags */
+  .lc-skill-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    padding: 0.28rem 0.55rem;
+    border: 1px solid #3A3632;
+    color: #8A8480;
+    margin: 0.18rem;
+    letter-spacing: 0.06em;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .lc-skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--cream);
+  }
+
+  /* Looking for */
+  .lc-looking-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem;
+    color: #B0ACA8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .lc-looking-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .lc-looking-role {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #C8C4C0;
+  }
+  .lc-looking-role::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Education */
+  .lc-edu-item {
+    margin-bottom: 1rem;
+  }
+  .lc-edu-item:last-child { margin-bottom: 0; }
+  .lc-edu-degree {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.4;
+  }
+  .lc-edu-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: #5A5652;
+    margin-top: 0.2rem;
+  }
+  .lc-edu-cert {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: #7A7470;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid #2E2B28;
+    line-height: 1.5;
+  }
+  .lc-edu-cert span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: #5A5652;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.15rem;
+  }

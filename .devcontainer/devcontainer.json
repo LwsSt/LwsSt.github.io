@@ -1,0 +1,10 @@
+{
+ "name": "Jekyll Dev Container",
+ "image": "mcr.microsoft.com/devcontainers/jekyll:latest",
+ "features": {
+   "ghcr.io/devcontainers/features/node:1": {
+     "version": "latest"
+   },
+   "ghcr.io/devcontainers/features/git:1":{}
+ }
+}
