@@ -75,13 +75,12 @@
     <div class="lc-aside-block">
       <div class="lc-aside-label">Looking For</div>
       <div class="lc-looking-text">
-        Roles where engineering leadership, architectural thinking, and platform quality are valued as much as individual contribution.
+        {{ site.looking_for.description }}
       </div>
       <div class="lc-looking-roles">
-        <div class="lc-looking-role">Principal Engineer</div>
-        <div class="lc-looking-role">Tech Lead</div>
-        <div class="lc-looking-role">Software Architect</div>
-        <div class="lc-looking-role">Engineering Manager</div>
+        {% for role in site.looking_for.roles %}
+          <div class="lc-looking-role">{{ role }}</div>
+        {% endfor %}
       </div>
     </div>
 
