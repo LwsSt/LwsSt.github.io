@@ -54,22 +54,9 @@
     <div class="lc-aside-block">
       <div class="lc-aside-label">Core Skills</div>
       <div>
-        <span class="lc-skill-tag">C#</span>
-        <span class="lc-skill-tag">.NET Core</span>
-        <span class="lc-skill-tag">ASP.NET Core</span>
-        <span class="lc-skill-tag">Azure</span>
-        <span class="lc-skill-tag">Azure DevOps</span>
-        <span class="lc-skill-tag">SQL Server</span>
-        <span class="lc-skill-tag">Docker</span>
-        <span class="lc-skill-tag">CI/CD</span>
-        <span class="lc-skill-tag">RabbitMQ</span>
-        <span class="lc-skill-tag">REST APIs</span>
-        <span class="lc-skill-tag">DDD</span>
-        <span class="lc-skill-tag">TDD</span>
-        <span class="lc-skill-tag">Java 8</span>
-        <span class="lc-skill-tag">Entity Framework</span>
-        <span class="lc-skill-tag">Microservices</span>
-        <span class="lc-skill-tag">Git</span>
+        {% for skill in site.data.skills %}
+          <span class="lc-skill-tag">{{ skill.name }}</span>
+        {% endfor %}
       </div>
     </div>
 
