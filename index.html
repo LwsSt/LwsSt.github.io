@@ -1,0 +1,103 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+---
+
+
+<!-- ═══ HEADER ═══ -->
+<div class="lc-header">
+  <div class="lc-portrait">
+    <!-- Replace the placeholder below with: <img src="your-photo.jpg" alt="Lewis Stapleton"> -->
+    <div class="lc-portrait-placeholder">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="15" r="8" stroke="#4A4642" stroke-width="1.5"/>
+        <path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#4A4642" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Your photo</span>
+    </div>
+  </div>
+  <div class="lc-header-right">
+    <div class="lc-name-full">Lewis Stapleton</div>
+    <div class="lc-descriptor">Senior Software Engineer &nbsp;·&nbsp; London &nbsp;·&nbsp; Available</div>
+  </div>
+</div>
+
+<!-- ═══ OPENING STATEMENT ═══ -->
+<div class="lc-statement">
+  <div class="lc-statement-text">
+    A decade of making <mark>legacy code</mark> a thing of the past — leading migrations, scaling teams, and building the <mark>engineering culture</mark> that keeps systems reliable.
+  </div>
+</div>
+
+<!-- ═══ BODY ═══ -->
+<div class="lc-body">
+
+  <!-- EXPERIENCE -->
+  <div class="lc-experience">
+    {% assign sorted = site.experience | reverse %}
+    {% for experience in sorted %}
+        <div class="lc-job">
+            <div class="lc-job-co">{{ experience.company }}</div>
+            <div class="lc-job-role">{{ experience.title }}</div>
+            <div class="lc-job-dates">{{ experience.duration }}</div>
+            <div class="lc-job-body">
+            {{ experience.content | markdownify }}
+        </div>
+        </div>
+    {% endfor %}
+
+  </div>
+
+  <!-- ASIDE -->
+  <div class="lc-aside">
+
+    <div class="lc-aside-block">
+      <div class="lc-aside-label">Core Skills</div>
+      <div>
+        <span class="lc-skill-tag">C#</span>
+        <span class="lc-skill-tag">.NET Core</span>
+        <span class="lc-skill-tag">ASP.NET Core</span>
+        <span class="lc-skill-tag">Azure</span>
+        <span class="lc-skill-tag">Azure DevOps</span>
+        <span class="lc-skill-tag">SQL Server</span>
+        <span class="lc-skill-tag">Docker</span>
+        <span class="lc-skill-tag">CI/CD</span>
+        <span class="lc-skill-tag">RabbitMQ</span>
+        <span class="lc-skill-tag">REST APIs</span>
+        <span class="lc-skill-tag">DDD</span>
+        <span class="lc-skill-tag">TDD</span>
+        <span class="lc-skill-tag">Java 8</span>
+        <span class="lc-skill-tag">Entity Framework</span>
+        <span class="lc-skill-tag">Microservices</span>
+        <span class="lc-skill-tag">Git</span>
+      </div>
+    </div>
+
+    <div class="lc-aside-block">
+      <div class="lc-aside-label">Education</div>
+      <div class="lc-edu-item">
+        <div class="lc-edu-degree">BSc Computer Science<br>(Year in Industry)</div>
+        <div class="lc-edu-meta">University of Kent &nbsp;·&nbsp; 2010 – 2014</div>
+      </div>
+      <div class="lc-edu-cert">
+        <span>Certification</span>
+        Databricks Apache Spark Training &nbsp;·&nbsp; June 2017
+      </div>
+    </div>
+
+    <div class="lc-aside-block">
+      <div class="lc-aside-label">Looking For</div>
+      <div class="lc-looking-text">
+        Roles where engineering leadership, architectural thinking, and platform quality are valued as much as individual contribution.
+      </div>
+      <div class="lc-looking-roles">
+        <div class="lc-looking-role">Principal Engineer</div>
+        <div class="lc-looking-role">Tech Lead</div>
+        <div class="lc-looking-role">Software Architect</div>
+        <div class="lc-looking-role">Engineering Manager</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
