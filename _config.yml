@@ -1,6 +1,6 @@
 title: Lewis Stapleton - Software Developer
 email: lewis.stapleton@outlook.com
-job_title: Senior Software Developer
+job_title: Software Engineer
 location: UK
 errata: Available
 
@@ -8,6 +8,16 @@ collections:
   experience:
     output: false
     sort_by: year
+
+navbar:
+  - text: Home
+    link: /
+  - text: Github
+    link: https://github.com/LwsSt
+  - text: Projects
+    link: /projects
+  - text: Writing
+    link: /writing
 
 looking_for:
   description: >-
