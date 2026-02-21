@@ -25,12 +25,16 @@ collections:
 navbar:
   - text: Home
     link: /
+    open_new: False
   - text: Github
     link: https://github.com/LwsSt
+    open_new: True
   - text: Projects
     link: /projects
+    open_new: False
   - text: Writing
     link: /writing
+    open_new: False
 
 looking_for:
   description: >-
