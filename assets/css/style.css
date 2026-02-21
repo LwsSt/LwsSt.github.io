@@ -1,5 +1,5 @@
 /* Lewis Stapleton — Portfolio Styles */
-/* Edit this file and paste the contents into the <style> block in portfolio-layout-c.html to keep both in sync */
+/* Keep in sync with the <style> block in portfolio-layout-c.html */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,19 +21,34 @@
     min-height: 100vh;
   }
 
+  .page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-left: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+  }
+
   /* ─────────────────────────────────────────
      NAV BANNER
   ───────────────────────────────────────── */
+  /* Hidden checkbox — the toggle mechanism */
+  #nav-toggle { display: none; }
+
   .nav-banner {
     background: #0E0C0A;
     border-bottom: 1px solid #2E2B28;
+    height: 44px;
+    position: relative;
+    z-index: 100;
+  }
+  .nav-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 3rem;
-    height: 44px;
-    position: relative;
-    z-index: 100;
   }
   .nav-banner-logo {
     font-family: 'Playfair Display', serif;
@@ -41,8 +56,10 @@
     font-weight: 700;
     color: var(--cream);
     letter-spacing: 0.02em;
+    text-decoration: none;
   }
   .nav-banner-logo span { color: var(--accent); }
+
   .nav-links {
     display: flex;
     align-items: center;
@@ -64,6 +81,7 @@
   }
   .nav-link:hover { color: var(--cream); background: #161310; }
   .nav-link.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+
   .nav-contact-btn {
     font-family: 'DM Mono', monospace;
     font-size: 0.62rem;
@@ -81,47 +99,36 @@
   }
   .nav-contact-btn:hover { background: #A83518; }
 
-  /* ── Hamburger — hidden on desktop ── */
-  .nav-hamburger {
+  /* ── Hamburger label — hidden on desktop ── */
+  .nav-hamburger-label {
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
     width: 44px;
     height: 44px;
-    background: none;
-    border: none;
+    align-items: center;
+    justify-content: center;
     border-left: 1px solid #2E2B28;
     cursor: pointer;
-    padding: 0 11px;
+    color: #6A6460;
+    font-size: 1rem;
     flex-shrink: 0;
+    transition: color 0.15s, background 0.15s;
   }
-  .nav-hamburger span {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: #6A6460;
-    transition: background 0.15s, transform 0.2s, opacity 0.15s;
-    transform-origin: center;
-  }
-  .nav-hamburger:hover span { background: var(--cream); }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-hamburger-label:hover { color: var(--cream); background: #161310; }
 
-  /* ── Mobile dropdown ── */
+  /* ── Mobile dropdown — hidden by default ── */
   .nav-dropdown {
+    display: none;
     position: absolute;
     top: 44px;
     left: 0;
     right: 0;
+    max-width: 1200px;
+    margin: 0 auto;
     background: #0E0C0A;
     border-bottom: 1px solid #2E2B28;
     flex-direction: column;
     z-index: 99;
-    display: none;
   }
-  .nav-dropdown.open { display: flex; }
   .nav-dropdown .nav-link {
     height: 48px;
     border-left: none;
@@ -137,10 +144,23 @@
     color: var(--accent);
   }
 
+  /* Checkbox checked → show dropdown (checkbox is sibling of nav) */
+  #nav-toggle:checked ~ nav .nav-dropdown { display: flex; }
+  /* Checkbox checked → swap bars icon to xmark */
+  #nav-toggle:checked ~ nav .nav-hamburger-label .fa-bars { display: none; }
+  #nav-toggle:checked ~ nav .nav-hamburger-label .fa-xmark { display: block; }
+  .nav-hamburger-label .fa-xmark { display: none; }
+
   @media (max-width: 700px) {
-    .nav-banner { padding: 0 0 0 1.2rem; }
+    .nav-banner-inner {
+      max-width: 100%;
+      padding: 0 0 0 1.2rem;
+    }
     .nav-links .nav-link { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-hamburger-label { display: flex; }
+    .nav-dropdown {
+      max-width: 100%;
+    }
   }
 
   /* ─────────────────────────────────────────

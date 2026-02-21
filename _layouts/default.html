@@ -6,49 +6,32 @@
     <title>{{ site.title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% link assets/css/style.css %}">
+    <script src="https://kit.fontawesome.com/a4701a9ef7.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <!-- ═══ NAV BANNER ═══ -->
+<input type="checkbox" id="nav-toggle" aria-hidden="true">
 <nav class="nav-banner">
-  <div class="nav-banner-logo">Lewis <span>Stapleton</span></div>
-  <div class="nav-links">
-    <a href="#" class="nav-link active">About</a>
-    <a href="#" class="nav-link">Experience</a>
-    <a href="#" class="nav-link">Projects</a>
-    <a href="#" class="nav-link">Writing</a>
-    <a href="#" class="nav-contact-btn">Contact</a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <!-- Mobile dropdown (all links except Contact, which stays in nav bar) -->
-  <div class="nav-dropdown" id="navDropdown">
-    <a href="#" class="nav-link active">About</a>
-    <a href="#" class="nav-link">Experience</a>
-    <a href="#" class="nav-link">Projects</a>
-    <a href="#" class="nav-link">Writing</a>
+  <div class="nav-banner-inner">
+    <a href="#" class="nav-banner-logo">Lewis <span>Stapleton</span></a>
+    <div class="nav-links">
+      {% include nav.html %}
+      <a href="#" class="nav-contact-btn">Contact</a>
+      <label for="nav-toggle" class="nav-hamburger-label" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </label>
+    </div>
+    <div class="nav-dropdown">
+      {% include nav.html %}
+    </div>
   </div>
 </nav>
 
-<script>
-  const btn = document.getElementById('navHamburger');
-  const dropdown = document.getElementById('navDropdown');
-  btn.addEventListener('click', () => {
-    const isOpen = dropdown.classList.toggle('open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', isOpen);
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-banner')) {
-      dropdown.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', false);
-    }
-  });
-</script>
-
+<div class="page-wrapper">
   {{ content }}
+</div>
+
 </body>
 </html>
