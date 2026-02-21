@@ -1,4 +1,17 @@
+# SEO
 title: Lewis Stapleton - Software Developer
+tagline: Principal-Ready .NET Engineer | Cloud-Native Architecture | DevOps & Test Automation | 10+ Years Enterprise Scale
+description: >-
+  Principal-minded Senior Software Engineer with 10+ years modernising enterprise .NET platforms
+  to cloud-native architectures on Azure, specialising in .NET Core, ASP.NET Core, microservices,
+  CI/CD automation, and distributed systems. Currently leading platform modernisation at Experian and
+  actively seeking a Principal Engineer, Tech Lead, Software Architect, or Engineering Manager role
+  in the UK (hybrid or remote).
+locale: en_GB
+social:
+  - https://github.com/LwsSt
+  - https://www.linkedin.com/in/lewis-stapleton/
+
 email: lewis.stapleton@outlook.com
 job_title: Software Engineer
 location: UK
