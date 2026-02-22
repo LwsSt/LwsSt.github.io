@@ -3,13 +3,7 @@
 <!-- ═══ HEADER ═══ -->
 <div class="lc-header">
   <div class="lc-portrait">
-    <!-- Replace the placeholder below with: <img src="your-photo.jpg" alt="Lewis Stapleton"> -->
-    <div class="lc-portrait-placeholder">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="15" r="8" stroke="#4A4642" stroke-width="1.5"/>
-        <path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#4A4642" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </div>
+    <img src="{% link assets/images/portrait.jpeg %}" alt="A handsome man who is clearly an accomplished developer" />
   </div>
   <div class="lc-header-right">
     <div class="lc-name-full">Lewis Stapleton</div>
@@ -61,16 +55,6 @@
     </div>
 
     <div class="lc-aside-block">
-      <div class="lc-aside-label">Education</div>
-      {% for item in site.data.education %}
-        <div class="lc-edu-item">
-          <div class="lc-edu-degree">{{ item.title }}</div>
-          <div class="lc-edu-meta">{{ item.provider }} &nbsp;·&nbsp; {{ item.duration }}</div>
-        </div>
-      {% endfor %}
-    </div>
-
-    <div class="lc-aside-block">
       <div class="lc-aside-label">Looking For</div>
       <div class="lc-looking-text">
         {{ site.looking_for.description }}
@@ -80,6 +64,16 @@
           <div class="lc-looking-role">{{ role }}</div>
         {% endfor %}
       </div>
+    </div>
+
+    <div class="lc-aside-block">
+      <div class="lc-aside-label">Education</div>
+      {% for item in site.data.education %}
+        <div class="lc-edu-item">
+          <div class="lc-edu-degree">{{ item.title }}</div>
+          <div class="lc-edu-meta">{{ item.provider }} &nbsp;·&nbsp; {{ item.duration }}</div>
+        </div>
+      {% endfor %}
     </div>
 
   </div>
