@@ -21,20 +21,22 @@ collections:
   experience:
     output: false
     sort_by: year
+  projects:
+    output: false
 
 navbar:
   - text: Home
     link: /
     open_new: False
+  - text: Projects
+    link: /projects.html
+    open_new: False
   - text: Github
     link: https://github.com/LwsSt
     open_new: True
-  - text: Projects
-    link: /projects
-    open_new: False
-  - text: Writing
-    link: /writing
-    open_new: False
+  # - text: Writing
+  #   link: /writing
+  #   open_new: False
 
 looking_for:
   description: >-

@@ -1,0 +1,30 @@
+---
+
+---
+<div class="lc-header">
+  <div class="lc-header-left">
+    <div class="lc-page-title">Projects</div>
+  </div>
+</div>
+
+<div class="lc-projects-grid">
+  {% for project in site.projects %}
+  <div class="lc-project-card" data-tags="open-source tool">
+    <a href="{{project.ext_url}}" class="lc-project-title">{{ project.title }} <span class="lc-title-arrow">↗</span></a>
+    <div class="lc-project-tagline">{{ project.tagline }}</div>
+    <div class="lc-project-desc">
+      {{ project.content | markdownify }}
+    </div>
+    <div class="lc-project-tags">
+      {% for tag in project.tags %}
+        <span class="lc-project-tag">{{tag}}</span>
+      {% endfor %}
+    </div>
+    <div class="lc-project-links">
+      {% for link in project.links %}
+        <a href="{{link.url}}" class="lc-project-link primary">{{link.text}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>  

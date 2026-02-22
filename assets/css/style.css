@@ -462,3 +462,278 @@
     display: block;
     margin-bottom: 0.15rem;
   }
+
+
+  /* ── HEADER ── */
+  .lc-header {
+    padding: 3rem 3rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .lc-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .lc-page-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .lc-page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+  }
+  .lc-descriptor {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: #5A5652;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* ── STATEMENT ── */
+  .lc-statement {
+    padding: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lc-statement-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--cream);
+  }
+  .lc-statement-text mark {
+    background: none;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+
+
+  /* ── PROJECT GRID ── */
+  .lc-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: none;
+  }
+
+  @media (max-width: 900px) {
+    .lc-projects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PROJECT CARD ── */
+  .lc-project-card {
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background 0.2s;
+    position: relative;
+  }
+  /* Remove right border from every second card */
+  .lc-project-card:nth-child(2n) {
+    border-right: none;
+  }
+  .lc-project-card:hover {
+    background: #1E1B18;
+  }
+
+  .lc-project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  a.lc-project-title {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    transition: color 0.15s;
+  }
+  a.lc-project-title:hover { color: var(--cream); }
+  a.lc-project-title .lc-title-arrow {
+    font-size: 0.75rem;
+    color: var(--accent);
+    transition: transform 0.15s;
+    flex-shrink: 0;
+    align-self: center;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+  }
+  a.lc-project-title:hover .lc-title-arrow {
+    transform: translate(2px, -1px);
+  }
+
+  .lc-project-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #7A7470;
+    margin-bottom: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  .lc-project-desc {
+    font-size: 0.83rem;
+    color: #9A9490;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Tag strip */
+  .lc-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 1.4rem;
+  }
+  .lc-project-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    padding: 0.2rem 0.48rem;
+    border: 1px solid #2E2B28;
+    color: #6A6460;
+    letter-spacing: 0.06em;
+  }
+
+  /* Links row */
+  .lc-project-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  .lc-project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6A6460;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .lc-project-link:hover { color: var(--accent); }
+  .lc-project-link i { font-size: 0.7rem; }
+  .lc-project-link.primary {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(196, 64, 28, 0.35);
+    padding-bottom: 1px;
+  }
+  .lc-project-link.primary:hover { border-bottom-color: var(--accent); }
+
+  /* ── EMPTY STATE (shown when all cards are filtered out) ── */
+  .lc-empty-state {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .lc-empty-state-icon {
+    font-size: 2rem;
+    color: #3A3632;
+    margin-bottom: 1rem;
+  }
+  .lc-empty-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #5A5652;
+    margin-bottom: 0.5rem;
+  }
+  .lc-empty-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: #3A3632;
+  }
+
+  /* ── ADD PROJECT CARD (always last) ── */
+  .lc-add-card {
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 280px;
+    cursor: default;
+    opacity: 0.35;
+    /* No right border — it's always the last cell; handled by nth-child if needed */
+  }
+  .lc-add-card-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px dashed #4A4642;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A4642;
+    font-size: 1.1rem;
+  }
+  .lc-add-card-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #4A4642;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ── SECTION LABEL (reused from about page) ── */
+  .lc-section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── FOOTER COUNT BAR ── */
+  .lc-count-bar {
+    padding: 1rem 3rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lc-count-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: #4A4642;
+    text-transform: uppercase;
+  }
+  .lc-count-text span { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .lc-header { padding: 2rem 1.5rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .lc-page-title { font-size: 1.5rem; }
+    .lc-statement { padding: 2rem 1.5rem; }
+    .lc-statement-text { font-size: 1.45rem; }
+    .lc-project-card { padding: 2rem 1.5rem; border-right: none !important; }
+    .lc-count-bar { padding: 1rem 1.5rem; }
+    .lc-add-card { padding: 2rem 1.5rem; border-right: none; }
+  }
